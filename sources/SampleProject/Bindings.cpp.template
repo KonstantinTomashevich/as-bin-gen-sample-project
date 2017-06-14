@@ -1,0 +1,8 @@
+#include <Urho3D/ThirdParty/AngelScript/angelscript.h>
+#include <Urho3D/AngelScript/APITemplates.h>
+//@ASBindGen WriteIncludes
+
+namespace Bindings
+{
+//@ASBindGen WriteBody
+}
