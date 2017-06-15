@@ -47,7 +47,21 @@ void SampleProject::Start ()
     // Execute test script
     Urho3D::ResourceCache *cache = context_->GetSubsystem <Urho3D::ResourceCache> ();
     Urho3D::ScriptFile *scriptFile = cache->GetResource <Urho3D::ScriptFile> ("TestScript.as");
-    scriptFile->Execute ("void Start ()");
+    Urho3D::VariantVector parameters;
+    parameters.Push (Urho3D::Variant (Urho3D::VariantMap ()));
+
+    if (!scriptFile->Execute ("void Start (VariantMap &out)", parameters))
+    {
+        ErrorExit ("Can't execute script function!");
+        return;
+    }
+
+    if (parameters.At (0).GetVariantMap () ["result"]->GetInt () != 0)
+    {
+        ErrorExit ("Script execution failed! Error code: " +
+                   Urho3D::String (parameters.At (0).GetVariantMap () ["result"]->GetInt ()) + "!");
+        return;
+    }
 
     if (!Urho3D::GetArguments ().Empty () && Urho3D::GetArguments ().At (0) == "--test")
     {
