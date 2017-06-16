@@ -3,7 +3,7 @@ define_source_files (RECURSE GLOB_H_PATTERNS "*.hpp" EXCLUDE_PATTERNS "AngelScri
 setup_main_executable ()
 add_test (NAME test_generated_bindings COMMAND SampleProject --test)
 
-set (COLONIZATION_HEADERS_LIST )
+set (SAMPLE_PROJECT_HEADERS_LIST )
 set (IS_FIRST_ITEM 1)
 foreach (HEADER ${H_FILES})
     if (NOT IS_FIRST_ITEM)
@@ -12,7 +12,7 @@ foreach (HEADER ${H_FILES})
         set (IS_FIRST_ITEM 0)
         set (START "    ")
     endif ()
-    set (COLONIZATION_HEADERS_LIST "${COLONIZATION_HEADERS_LIST}${START}\"${HEADER}\"")
+    set (SAMPLE_PROJECT_HEADERS_LIST "${SAMPLE_PROJECT_HEADERS_LIST}${START}\"${HEADER}\"")
 endforeach ()
 configure_file (${CMAKE_SOURCE_DIR}/ASBindGenConfiguration.lua.cmake ${CMAKE_SOURCE_DIR}/ASBindGenConfiguration.lua)
 

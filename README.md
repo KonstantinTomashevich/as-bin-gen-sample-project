@@ -2,7 +2,8 @@
 ASBindGen sample project. Illustrates simple bindings generation and use.
 
 ## CMake project configuration
-1. Clone `ASBindGen` from GitHub, if `ASBINDGEN_PATH` not specified.
+Step 1. Clone `ASBindGen` from GitHub, if `ASBINDGEN_PATH` not specified.
+
 ```cmake
 # Setup dependencies.
 set (DEPENDENCIES_DIR "dependencies")
@@ -36,9 +37,10 @@ else ()
     set (AS_BIND_GEN_SCRIPT "dependencies/as-bind-gen/Main.lua")
 endif ()
 ```
-2. Generate `ASBindGen` configuration file from [CMake template file](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/ASBindGenConfiguration.lua.cmake).
+Step 2. Generate `ASBindGen` configuration file from [CMake template file](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/ASBindGenConfiguration.lua.cmake).
+
 ```cmake
-set (COLONIZATION_HEADERS_LIST )
+set (SAMPLE_PROJECT_HEADERS_LIST )
 set (IS_FIRST_ITEM 1)
 foreach (HEADER ${H_FILES})
     if (NOT IS_FIRST_ITEM)
@@ -47,11 +49,12 @@ foreach (HEADER ${H_FILES})
         set (IS_FIRST_ITEM 0)
         set (START "    ")
     endif ()
-    set (COLONIZATION_HEADERS_LIST "${COLONIZATION_HEADERS_LIST}${START}\"${HEADER}\"")
+    set (SAMPLE_PROJECT_HEADERS_LIST "${SAMPLE_PROJECT_HEADERS_LIST}${START}\"${HEADER}\"")
 endforeach ()
 configure_file (${CMAKE_SOURCE_DIR}/ASBindGenConfiguration.lua.cmake ${CMAKE_SOURCE_DIR}/ASBindGenConfiguration.lua)
 ```
-3. Add `ASBindGen` custom target.
+Step 3. Add `ASBindGen` custom target.
+
 ```cmake
 add_custom_target (SampleProjectASBindGen
                     COMMAND ${LUA} ${AS_BIND_GEN_SCRIPT} "ASBindGenConfiguration.lua" "${CMAKE_BINARY_DIR}/ASBindGen.log"
@@ -61,12 +64,14 @@ add_custom_target (SampleProjectASBindGen
 add_dependencies (SampleProject SampleProjectASBindGen)
 ```
 ## C++ side
-1. Add `ASBindGen` bindings template files: [Bindings.hpp.template](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/sources/SampleProject/Bindings.hpp.template) and [Bindings.cpp.template](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/sources/SampleProject/Bindings.cpp.template).
-2. Add external class `Object` (it is `Urho3D::Object`) declaration for `ASBindGen`.
+Step 1. Add `ASBindGen` bindings template files: [Bindings.hpp.template](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/sources/SampleProject/Bindings.hpp.template) and [Bindings.cpp.template](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/sources/SampleProject/Bindings.cpp.template).
+
+Step 2. Add external class `Object` (it is `Urho3D::Object`) declaration for `ASBindGen`.
+
 ```c++
 //@ASBindGen ExternalClass Name=Object ExcludeSubclassRegistration
 //@ASBindGen    Urho3D::RegisterObject <${templateName}> (engine, ${bindingName});
 ```
-3. Add `ASBindGen` command-comments to headers. For example, [SampleContainer.hpp](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/sources/SampleProject/SampleContainer.hpp).
+Step 3. Add `ASBindGen` command-comments to headers. For example, [SampleContainer.hpp](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/sources/SampleProject/SampleContainer.hpp).
 ## AngelScript side
 Test generated bindings in [small script file](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/bin/Data/TestScript.as).

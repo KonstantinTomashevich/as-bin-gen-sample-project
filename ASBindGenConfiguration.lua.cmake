@@ -6,7 +6,7 @@ configuration.bindingsFileName = "Bindings"
 configuration.bindingsGeneratorCommand = "//@ASBindGen"
 
 configuration.files = {
-${COLONIZATION_HEADERS_LIST}
+${SAMPLE_PROJECT_HEADERS_LIST}
 }
 
 configuration.outputHppFileTemplate = "./sources/SampleProject/Bindings.hpp.template"
