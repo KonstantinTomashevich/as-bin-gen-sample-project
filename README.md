@@ -34,7 +34,7 @@ if (NOT ASBINDGEN_PATH)
     endif ()
     set (AS_BIND_GEN_SCRIPT "./${DEPENDENCIES_DIR}/${AS_BIND_GEN_REPO_NAME}/Main.lua")
 else ()
-    set (AS_BIND_GEN_SCRIPT "dependencies/as-bind-gen/Main.lua")
+    set (AS_BIND_GEN_SCRIPT "${ASBINDGEN_PATH}/Main.lua")
 endif ()
 ```
 Step 2. Generate `ASBindGen` configuration file from [CMake template file](https://github.com/KonstantinTomashevich/as-bin-gen-sample-project/blob/master/ASBindGenConfiguration.lua.cmake).
@@ -59,7 +59,7 @@ Step 3. Add `ASBindGen` custom target.
 add_custom_target (SampleProjectASBindGen
                     COMMAND ${LUA} ${AS_BIND_GEN_SCRIPT} "ASBindGenConfiguration.lua" "${CMAKE_BINARY_DIR}/ASBindGen.log"
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                    COMMENT "Generating Angel Script bindings for Colonization via ASBindGen..."
+                    COMMENT "Generating Angel Script bindings for SampleProject via ASBindGen..."
                     VERBATIM)
 add_dependencies (SampleProject SampleProjectASBindGen)
 ```

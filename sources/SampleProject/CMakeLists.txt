@@ -19,6 +19,6 @@ configure_file (${CMAKE_SOURCE_DIR}/ASBindGenConfiguration.lua.cmake ${CMAKE_SOU
 add_custom_target (SampleProjectASBindGen
                     COMMAND ${LUA} ${AS_BIND_GEN_SCRIPT} "ASBindGenConfiguration.lua" "${CMAKE_BINARY_DIR}/ASBindGen.log"
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                    COMMENT "Generating Angel Script bindings for Colonization via ASBindGen..."
+                    COMMENT "Generating Angel Script bindings for SampleProject via ASBindGen..."
                     VERBATIM)
 add_dependencies (SampleProject SampleProjectASBindGen)

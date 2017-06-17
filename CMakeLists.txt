@@ -86,7 +86,7 @@ if (NOT ASBINDGEN_PATH)
     endif ()
     set (AS_BIND_GEN_SCRIPT "./${DEPENDENCIES_DIR}/${AS_BIND_GEN_REPO_NAME}/Main.lua")
 else ()
-    set (AS_BIND_GEN_SCRIPT "dependencies/as-bind-gen/Main.lua")
+    set (AS_BIND_GEN_SCRIPT "${ASBINDGEN_PATH}/Main.lua")
 endif ()
 
 include (UrhoCommon)
