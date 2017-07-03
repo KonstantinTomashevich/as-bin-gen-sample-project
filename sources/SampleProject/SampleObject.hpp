@@ -10,7 +10,7 @@ protected:
 
 public:
     //@ASBindGen Constructor UseUrho3DScriptContext_arg0
-    SampleObject (Urho3D::Context *context);
+    explicit SampleObject (Urho3D::Context *context);
     //@ASBindGen Constructor UseUrho3DScriptContext_arg0
     SampleObject (Urho3D::Context *context, float value);
     virtual ~SampleObject ();

@@ -11,7 +11,7 @@ protected:
 
 public:
     //@ASBindGen Constructor UseUrho3DScriptContext_arg0
-    SampleContainer (Urho3D::Context *context);
+    explicit SampleContainer (Urho3D::Context *context);
     virtual ~SampleContainer ();
 
     //@ASBindGen Function ReturnHandleArray
