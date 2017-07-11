@@ -1,6 +1,10 @@
 # ASBindGen Sample Project
 ASBindGen sample project. Illustrates simple bindings generation and use.
 
+**Travis CI:** [![Build Status](https://travis-ci.org/KonstantinTomashevich/as-bin-gen-sample-project.svg?branch=master)](https://travis-ci.org/KonstantinTomashevich/as-bin-gen-sample-project)
+
+**Automated code reviews:** [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bb8aec31aab74baab3b7c087e881de4d)](https://www.codacy.com/app/KonstantinTomashevich/as-bin-gen-sample-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KonstantinTomashevich/as-bin-gen-sample-project&amp;utm_campaign=Badge_Grade)[![Code Climate](https://codeclimate.com/github/KonstantinTomashevich/as-bin-gen-sample-project/badges/gpa.svg)](https://codeclimate.com/github/KonstantinTomashevich/as-bin-gen-sample-project)[![Issue Count](https://codeclimate.com/github/KonstantinTomashevich/as-bin-gen-sample-project/badges/issue_count.svg)](https://codeclimate.com/github/KonstantinTomashevich/as-bin-gen-sample-project)
+
 ## CMake project configuration
 Step 1. Clone `ASBindGen` from GitHub, if `ASBINDGEN_PATH` not specified.
 
